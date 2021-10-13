@@ -2,6 +2,8 @@ CREATE DATABASE chatli;
 
 \c  chatli;
 
+CREATE EXTENSION pgcrypto;
+
 CREATE TABLE chatli_user
 (
     id uuid PRIMARY KEY,
