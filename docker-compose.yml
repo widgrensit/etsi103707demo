@@ -5,25 +5,25 @@ services:
     image: ghcr.io/widgrensit/chat_app:latest
     ports:
       - 8100:8100
-    depends_on: [db]
+    depends_on: [ db ]
   chat_app_2:
     image: ghcr.io/widgrensit/chat_app:latest
     ports:
       - 8200:8100
-    depends_on: [db]
+    depends_on: [ db ]
   chat_app_3:
     image: ghcr.io/widgrensit/chat_app:latest
     ports:
       - 8300:8100
-    depends_on: [db]
+    depends_on: [ db ]
   ldf:
     image: ghcr.io/widgrensit/ldf:latest
-    depends_on: [db]
+    depends_on: [ db ]
     ports:
       - 8095:8095
   chatli:
     image: ghcr.io/widgrensit/chatli:latest
-    depends_on: [db]
+    depends_on: [ db ]
     ports:
       - 8090:8090
   db:
@@ -33,7 +33,7 @@ services:
     ports:
       - 5555:5432
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d/
+      - ./sql:/docker-entrypoint-initdb.d
   adminer:
     image: adminer
     ports:
