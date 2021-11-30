@@ -64,6 +64,6 @@ CREATE TABLE attachment
     length INTEGER
 );
 
-INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'alice', '461234', 'alice@alice.se', 'alice');
-INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'bob', '462345', 'bob@bob.se', 'bob');
-INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'ceasar', '463456', 'ceasar@ceasar.se', 'ceasar');
+INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'alice', '461234', 'alice@example.com', 'alice');
+INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'bob', '462345', 'bob@example.com', 'bob');
+INSERT INTO chatli_user (id, username, phone_number, email, password) VALUES (gen_random_uuid(), 'ceasar', '463456', 'ceasar@example.com', 'ceasar');
