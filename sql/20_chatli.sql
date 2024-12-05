@@ -22,7 +22,8 @@ CREATE TABLE message
     sender uuid NOT NULL,
     type varchar,
     action varchar,
-    timestamp bigint
+    timestamp bigint,
+    sender_info jsonb
 );
 
 CREATE TABLE chat

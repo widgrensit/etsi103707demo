@@ -1,5 +1,4 @@
 # Use postgres/example user/password credentials
-version: "3.1"
 services:
   chat_app_1:
     image: ghcr.io/widgrensit/chat_app:latest
@@ -27,7 +26,8 @@ services:
     ports:
       - 8090:8090
   db:
-    image: postgres:11.13-alpine
+    image: postgres:17-alpine
+    command: -c 'max_connections=2000'
     environment:
       POSTGRES_PASSWORD: root
     ports:
