@@ -23,7 +23,7 @@ services:
     ports:
       - 8095:8095
   chatli:
-    image: ghcr.io/widgrensit/chatli:latest
+    image: ghcr.io/widgrensit/chatli:v0.0.2
     depends_on:
       db:
         condition: service_healthy
