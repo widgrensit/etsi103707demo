@@ -29,6 +29,20 @@ services:
         condition: service_healthy
     ports:
       - 8090:8090
+  # Seeds the sample users once chatli has created its tables on boot.
+  # Schema comes from each app's kura migrations, not from sql init.
+  seeder:
+    image: postgres:17-alpine
+    depends_on: [ chatli ]
+    restart: on-failure
+    environment:
+      PGPASSWORD: root
+    volumes:
+      - ./seed:/seed
+    command: >
+      sh -c "until psql -h db -U postgres -d chatli -c 'SELECT 1 FROM chatli_user LIMIT 1' >/dev/null 2>&1;
+      do echo 'waiting for chatli tables...'; sleep 2; done;
+      psql -h db -U postgres -d chatli -f /seed/seed.sql"
   db:
     image: postgres:17-alpine
     command: -c 'max_connections=2000'
